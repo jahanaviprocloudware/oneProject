@@ -1,0 +1,36 @@
+.gap {
+  gap: 3em;
+  border: 1px solid transparent;
+  padding: 8%;
+  background-color: "white";
+}
+
+.backgorund {
+  background-image: linear-gradient(to right, #d4ecd6, white, #d4ecd6);
+  animation: loginBackgound 10s ease-out 2s infinite alternate;
+}
+
+@keyframes loginBackgound {
+  0% {
+    background-image: linear-gradient(to right, #d4ecd6, white, #d4ecd6);
+  }
+  25% {
+    background-image: linear-gradient(to top, white, #d4ecd6);
+  }
+  50% {
+    background-image: linear-gradient(to right, #d4ecd6, white, #d4ecd6);
+  }
+  75% {
+    background-image: linear-gradient(to right, white, #d4ecd6);
+  }
+  100% {
+    background-image: linear-gradient(to top, #d4ecd6, white, #d4ecd6);
+  }
+}
+
+.backgorundbtnColor {
+  background-color: #357e3b !important;
+}
+.headingColor {
+  color: #357e3b;
+}

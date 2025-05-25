@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..700&display=swap");
+@media (prefers-reduced-motion: no-preference) {
+
+  img {
+    position: relative;
+    animation: scrollin cubic-bezier(0.23, -0.26, 0.78, 1.29) both, fade-out linear both;
+    animation-timeline: view();
+    animation-range: 1vh 50vh, exit -10px;
+    transform-origin: left;
+  }
+
+  @keyframes scrollin {
+    from {
+      scale: 0.3;
+      opacity: 0;
+      left: -25vh;
+    }
+    to {
+      opacity: 1;
+      scale: 1;
+      left: 0;
+    }
+  }
+  .path {
+    border-radius: 40vh 180vh 180vh 10vh;
+  }
+  .path .wheel {
+    offset-path: polygon(0 0, 97% 12%, 0% 18%, 100% 25%, 0% 33%, 96% 40%, 1% 49%, 100% 56%, 0% 66%, 100% 71%, 3% 81%, 100% 86%, 0% 92%, 100% 100%, 0 100%);
+    animation: followpath linear;
+    animation-timeline: scroll();
+  }
+
+  @keyframes followpath {
+    from {
+      offset-distance: 4%;
+    }
+    to {
+      offset-distance: 50%;
+    }
+  }
+  
+  .path {
+    position: fixed;
+    z-index: 100;
+    pointer-events: none;
+    top: 1em;
+    left: 0.5em;
+    width: 1rem;
+    margin-left:3rem;
+    height: 40vw;
+    border: 1px solid #fff6;
+    margin-top:5rem;
+    border-left-color: #0000;
+    background: radial-gradient(farthest-side at -33.33% 50%, #c1e7c4 52%, #357e3b 54% 57%, #0000 59%) 0 calc(64px / 2), radial-gradient(farthest-side at 50% 133.33%, #0000 52%, #bce9c0 54% 57%, #0000 59%) calc(64px / 2) 0, radial-gradient(farthest-side at 133.33% 50%, #0000 52%, #f3f0f050 54% 57%, #0000 59%), radial-gradient(farthest-side at 50% -33.33%, #0000 52%, #357e3b 54% 57%, #0000 59%), #e6f1e7;
+    background-size: calc(64px / 4.667) 64px, 64px calc(64px / 4.667);
+  }
+  .path .wheel {
+    width: 0px;
+    aspect-ratio: 1;
+    border: 1px solid #357e3b;
+    border-width: 0.4vw 1vw;
+    border-radius: 30%;
+  }
+
+  .path:after,
+.path:before {
+    content: "0%";
+    text-align: center;
+    font-size: 1rem;
+    position: absolute;
+    inset: -0.5vw;
+    top: 1em;
+    opacity: 0.9;
+  }
+
+  .path:before {
+    content: "100%";
+    top: unset;
+    bottom: 0.5em;
+  }
+}
+
+img {
+  max-width: 100%;
+}

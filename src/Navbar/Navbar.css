@@ -1,0 +1,20 @@
+.navbar {
+  display: flex;
+  /* background-color: #333; */
+      background-image: linear-gradient(to right, #357e3b , #d4ecd6,white) !important;
+color:#357e3b;
+  padding: 1rem;
+  justify-content:end !important;
+}
+
+.nav-link {
+  color: white;
+  margin-right: 2rem;
+  text-decoration: none;
+  font-size: 1.rem;
+  font-weight: bolder;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}

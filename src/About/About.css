@@ -1,0 +1,20 @@
+.card-seq{
+    gap:3rem;
+    margin:5rem
+}
+
+.headerAbout {
+  color: #357e3b;
+  font-family:"Times New Roman", Times, serif;
+  background: url('https://img.freepik.com/premium-photo/bunch-beautiful-daisy-flowers-white-background_495423-46904.jpg');
+  background-size: 135px 60px;
+  background-repeat: no-repeat;
+}
+
+.about{
+    margin-left: 3rem;
+}
+
+.container{
+    background-image: linear-gradient(to right, #d4ecd6, white, #d4ecd6);
+}

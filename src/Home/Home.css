@@ -1,0 +1,40 @@
+.landing-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+.left-image {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: url('https://th.bing.com/th/id/OIP.irDsCNW2f_ldhdhaPSSgKQHaLH?w=700&h=1050&rs=1&pid=ImgDetMain');
+  background-repeat: no-repeat;
+  clip-path: ellipse(75% 100% at 0% 50%);
+  animation :backImage 5s ease-in 2s infinite alternate;
+}
+
+@keyframes backImage {
+  0%   {background: url('https://cdn.pixabay.com/photo/2023/10/31/18/18/forest-8355748_1280.jpg');}
+  25%  {background: url('https://burst.shopifycdn.com/photos/golden-sunbeams-flood-winding-dirt-path-in-coastal-forest.jpg?width=1000&format=pjpg&exif=0&iptc=0')}
+  50%  {background: url('https://th.bing.com/th/id/OIP.irDsCNW2f_ldhdhaPSSgKQHaLH?w=700&h=1050&rs=1&pid=ImgDetMain')}
+  75%  {background: url('https://th.bing.com/th/id/OIP.RRrYoe5ocN2yDgzKiM-8yQHaEo?w=1920&h=1200&rs=1&pid=ImgDetMain')}
+  100% {background: url('https://cdn.pixabay.com/photo/2023/10/31/18/18/forest-8355748_1280.jpg')}
+}
+
+.left-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.right-text {
+  flex: 1;
+  background-color: #f8f8f8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 60px;
+}
