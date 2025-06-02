@@ -10,10 +10,9 @@ import Avatar from '@mui/material/Avatar';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import EditIcon from '@mui/icons-material/Edit';
+import { FormWithUser } from '../Form/Form';
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -44,25 +43,26 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 }));
 
 export default function CardWithBody (props) {
-  const { img, body, cardBody, name } = props;
+  const {uniqueKey,email, img, body, cardBody, name } = props;
   const [expanded, setExpanded] = React.useState(false);
+   const [formvalues,setFormvalues] = React.useState({name: '', email:'',isEdit:'',userId:''})
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
+if(formvalues.isEdit === 'card'){
+    return (
+      <FormWithUser formValues={formvalues} setFormvalues={setFormvalues}/>
+    )
+  }else {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 }} key={uniqueKey}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="card header">
             {name.charAt(0).toUpperCase()}
           </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
         }
         title={name}
       />
@@ -79,12 +79,7 @@ export default function CardWithBody (props) {
         
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
+         <span onClick={() => setFormvalues({name:name,email:email,isEdit:'card',userId:uniqueKey})}><EditIcon/></span>
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}
@@ -104,4 +99,5 @@ export default function CardWithBody (props) {
       </Collapse>
     </Card>
   );
+}
 }
