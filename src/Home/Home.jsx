@@ -10,7 +10,7 @@ export const Home = () => {
           This is a dummy application, which is showing my skills, and all api
           calls inside this are mocked apis , because right now I am working as
           a frontend developer. so i can only show you data comming from call. i
-          have used react, react-router, redux, redux, material ui, formik, yup,
+          have used react, react-router, material ui, formik, yup,
           and many more libraries. i am working to upgrade this app to a full
           stack application, so that i can show you my backend skills as well.
         </p>

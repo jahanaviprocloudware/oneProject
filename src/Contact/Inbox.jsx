@@ -4,7 +4,7 @@ import Button from "@mui/joy/Button";
 import FormControl from "@mui/joy/FormControl";
 import FormLabel from "@mui/joy/FormLabel";
 import Textarea from "@mui/joy/Textarea";
-import { TextField } from "@mui/material";
+import { TextField, Typography } from "@mui/material";
 import { useFormik } from "formik";
 
 export const TextCommentArea = (props) => {
@@ -23,23 +23,28 @@ export const TextCommentArea = (props) => {
 
   const formik = useFormik({
     initialValues: {
-      personName: '',
+      personName: "",
       comment: "",
     },
     validate,
     onSubmit: (values, { resetForm }) => {
       setIsCommentUpdated(true);
       const newComment = { name: values.personName, body: values.comment };
-      const existingComment =
-        JSON.parse(sessionStorage.getItem("comment")) || [];
+      const existingComment = JSON.parse(localStorage.getItem("comment")) || [];
       existingComment.push(newComment);
-      sessionStorage.setItem("comment", JSON.stringify(existingComment));
+      localStorage.setItem("comment", JSON.stringify(existingComment));
       resetForm();
     },
   });
 
   return (
     <FormControl component="form" onSubmit={formik.handleSubmit}>
+      <Typography
+        variant="h6"
+        sx={{ textAlign: "center", marginBottom: 2, color: "text.primary" }}
+      >
+        Leave a comment for me
+      </Typography>
       <FormLabel>Your comment</FormLabel>
       <div>
         <TextField
@@ -88,4 +93,3 @@ export const TextCommentArea = (props) => {
     </FormControl>
   );
 };
-

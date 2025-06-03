@@ -15,7 +15,7 @@ export const CommentList = (props) => {
   const { commentData, loading } = CommentListHook();
 
   React.useEffect(() => {
-    const existingComment = JSON.parse(sessionStorage.getItem("comment")) || [];
+    const existingComment = JSON.parse(localStorage.getItem("comment")) || [];
     if (
       existingComment &&
       commentData &&
@@ -33,6 +33,14 @@ export const CommentList = (props) => {
     }
     setIsCommentUpdated(false);
   }, [commentData, isCommentUpdated]);
+
+  const capitalizeWords = str => {
+    return str
+      .toLowerCase()
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  };
   return (
     <div>
       {loading && !commentData && (
@@ -50,14 +58,14 @@ export const CommentList = (props) => {
                 <ListItem alignItems="flex-start flex-wrap">
                   <ListItemAvatar>
                     <Avatar
-                      alt={item.avatar_url}
+                      alt={item.avatar_url || item?.name.charAt(0).toUpperCase()}
                       src={
                         item.avatar_url || item?.name.charAt(0).toUpperCase()
                       }
                     />
                   </ListItemAvatar>
                   <ListItemText
-                    primary={`${item.name}`}
+                    primary={`${capitalizeWords(item.name)}`}
                     secondary={
                       <React.Fragment>
                         <Typography

@@ -50,6 +50,7 @@ export const LoginPage = () => {
               }}
             />
           </div>
+          <div><p>use atleast one & for login in password</p></div>
           <div>
             <Button
               variant="contained"
